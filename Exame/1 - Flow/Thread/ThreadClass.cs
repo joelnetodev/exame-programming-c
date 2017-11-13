@@ -23,7 +23,7 @@ namespace ConsoleApp
     {
         public static bool IsStop { get; set; }
 
-        //Com esse atributo, para cada thread, a CLR cria uma nova variavel
+        //Com esse atributo, para cada thread, a CLR cria uma nova variável
         [ThreadStatic]
         public static int Quantidade;
 
@@ -53,13 +53,13 @@ namespace ConsoleApp
             Console.WriteLine("Digite um numero:");
             int numero = Convert.ToInt32(Console.Read());
 
-            ThreadClass.IsStop = false;
+            IsStop = false;
 
             var thread = new Thread(ThreadClass.TestarThreadParametro);
             thread.Start(numero);
 
             Thread.Sleep(3000);
-            ThreadClass.IsStop = true;
+            IsStop = true;
         }
 
         //Thread so recebe metodo que o parametro seja um object

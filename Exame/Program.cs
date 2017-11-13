@@ -20,9 +20,10 @@ namespace ConsoleApp
                 Console.WriteLine("Main");
                 Console.WriteLine("");
 
-                TesarCodigosDoExame();
+                TesarFlowThreads();
+                TestarTypesLifeCycle();
+                TestarSecurityLog();
 
-                //Contador();   
 
                 Console.WriteLine("\n\n");
                 Console.WriteLine("End Main");
@@ -39,14 +40,16 @@ namespace ConsoleApp
             
         }
 
-        private static void TesarCodigosDoExame()
+        private static void TesarFlowThreads()
         {
+            //Flow
+
             //Thread
             //ThreadClass.TestarThread();
             //ThreadClass.ThreadParametro();
             //ThreadClass.TestarThreadAtributo();
 
-            
+
             //Task
             //TaskClass.TestarTask();
             //Console.WriteLine(TaskClass.TestarTaskReturn());
@@ -55,7 +58,7 @@ namespace ConsoleApp
             //TaskClass.TaskCancellationTest();
 
             //Async
-            AsyncClass.TestarAsync();
+            //AsyncClass.TestarAsync();
             //AsyncClass.TestarAsyncConfigureAwait();
 
             //Parallel
@@ -78,8 +81,12 @@ namespace ConsoleApp
             //ExceptionClass.TestarSemException();
             //ExceptionClass.TestarSpecifcException();
             //ExceptionClass.TestarCustomExcpetion();
+        }
 
-            //Types
+        private static void TestarTypesLifeCycle()
+        {
+            //Types LifeCycle
+
             //Value
             //ValueTypesClass.TestarEnum();
 
@@ -92,7 +99,7 @@ namespace ConsoleApp
             //ConversionClass.TestarConversaoImplicitaExplicita();
             //ConversionClass.TestarConversarAseIs();
             //DynamicClass.TestarDynamic();
-            
+
             //Classes e Interfaces
             //InterfaceClass.TesteInterface();
             //AbstractClass.TestarClasseAbstrata();
@@ -113,11 +120,16 @@ namespace ConsoleApp
             //StringClass.TestarSearch();
             //Console.WriteLine(StringClass.ToString());
             //StringClass.TestarToString();
+        }
+
+        private static void TestarSecurityLog()
+        {
+            //Security Logs
 
             //Criptografia
             //CryptographyClass.TestarCriptografiaSimetrica();
             //CryptographyClass.TestarCriptografiaAssimetrica();
-            
+
             //ValidationResult conteudo e tipo
             //ValidateTypeContentClass.TestarParseConvert();
             //ValidateTypeContentClass.TestarIntregridadeNotations();
@@ -131,7 +143,8 @@ namespace ConsoleApp
             //CertificateClass.TestarCertificado();
 
             //Permissão local
-            //PermissionClass.TestarPermissao();
+            //PermissionClass.TestarPermissaoNegada();
+            //PermissionClass.GarantirAcesso();
 
             //SecureString
             //SecureStringClass.TestarSecureString();
@@ -140,7 +153,9 @@ namespace ConsoleApp
             //DebugClass.TestarDebugReleaseTimer();
             //DebugClass.TestarDiretivas();
             //DebugClass.TestarAtributoDiretivas();
+            //DebugClass.TestarLinhas();
 
-        }        
+
+        }
     }
 }

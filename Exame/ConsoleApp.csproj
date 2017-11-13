@@ -77,6 +77,7 @@
     <Compile Include="3 - Security\Cryptography\CryptographyClass.cs" />
     <Compile Include="3 - Security\Cryptography\HashingClass.cs" />
     <Compile Include="3 - Security\Debug\DebugClass.cs" />
+    <Compile Include="3 - Security\Log\TraceLogEventClass.cs" />
     <Compile Include="3 - Security\Permission\PermissionClass.cs" />
     <Compile Include="3 - Security\SecureString\SecureStringClass.cs" />
     <Compile Include="3 - Security\Validation\ValidateJsonXmlClass.cs" />

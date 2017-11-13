@@ -15,6 +15,9 @@ namespace ConsoleApp
 {
     public class ParallelClass
     {
+        //o modificador volatile manda buscar semrep o ultimo valor da variável
+        //Ex: var valor = 5; Console.Write(valor); em cache isso ficaria Console.Write(5);
+        //Ex: mas antes de mostrar esse valor pode mudar em outra thread, o volatile garante que vai ser ultilizado sempre o valor mais recente da variável.
         private static volatile int _numeroVolatil;
 
         public static void LockedAndVolatileVariablesTest()
@@ -29,7 +32,10 @@ namespace ConsoleApp
                 for (int i = 0; i < 10000000; i++)
                 {
                     _numeroVolatil++;
-                    //Dentro do Lock, a thread aguarda esse statement termianr para continuar, significa que o acesso é ThreadSafe
+                    //Dentro do Lock, a thread aguarda esse statement terminar para continuar, significa que o acesso é ThreadSafe
+                    //Também pode ser usado o Monitor.Enter e o Monitor.Stop
+                    Monitor.Enter(_lock);
+                    Monitor.Exit(_lock);
                     lock (_lock)
                     {
                         numero++;

@@ -14,15 +14,17 @@ namespace ConsoleApp.EventsDelegates
     {
         private delegate void DelegateVoidParametro(int numero);
 
+        private delegate string DelegateStringParametro(int numero);
+
         private delegate string DelegateString();
 
-        private static void VerificarSeParOuImpar(int numero)
+        private static string VerificarSeParOuImpar(int numero)
         {
             string parImparResult;
 
             parImparResult = numero % 2 == 0 ? "Par" : "Impar";
 
-            Console.WriteLine("Numero é " + parImparResult);
+            return parImparResult;
         }
 
         private static string MetodoString1()
@@ -44,8 +46,10 @@ namespace ConsoleApp.EventsDelegates
 
             int numero = Convert.ToInt32(numeroStr);
 
-            DelegateVoidParametro delegParImpar = new DelegateVoidParametro(VerificarSeParOuImpar);
-            delegParImpar(numero);
+            DelegateStringParametro delegParImpar = VerificarSeParOuImpar;
+            var result = delegParImpar(numero);
+
+            Console.WriteLine("Numero é " + result);
         }
 
         public static void TestarMultipleDelegate()
@@ -53,7 +57,7 @@ namespace ConsoleApp.EventsDelegates
             Console.WriteLine("Multiple Delegate");
 
             //+= para atribuir mais metodos domesmo tipo e com mesmos parametros ao delegate
-            DelegateString deleg = new DelegateString(MetodoString1);
+            DelegateString deleg = MetodoString1;
             deleg += MetodoString2;
 
             //Percorro lista de metodos e chamo um por vez
@@ -119,7 +123,7 @@ namespace ConsoleApp.EventsDelegates
             numero = ActionEventClass.Numero;
 
             //Nada impede de executar a action atravez da classe
-            //ActionEventClass.OnGetAction(1);
+            ActionEventClass.OnGetAction(1);
         }
 
         private class ActionEventClass
