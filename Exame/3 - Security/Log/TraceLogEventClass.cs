@@ -27,13 +27,23 @@ namespace ConsoleApp
         //Log esta sempre habilitado e é usado para relatorio
         //Pode logar o conteudo de um email ou banco de dados quando existe um problema sério
 
-        public static void TestarTraceSource()
+        public static void TestarTrace()
         {
+            Console.WriteLine("Inicio trace");
 
-            Console.WriteLine("Trace");
+            //Cria texto e listener para escrever os eventos no arquivo.
+            FileStream fs = !File.Exists("Log.txt") 
+                ? File.Create("Log.txt")
+                : File.Open("Log.txt", FileMode.Append);
+            TraceListener tl = new TextWriterTraceListener(fs);
+
 
             //SourceLevel para mostrar todos os tipos, ou tipos especificos
-            TraceSource trace = new TraceSource("TraceSource J", SourceLevels.All);
+            TraceSource trace = new TraceSource("Log Evento:", SourceLevels.All);
+
+            //Se o trace não tiver listener, então o log vai mostrar apenas no console em modo debug
+            trace.Listeners.Clear();
+            trace.Listeners.Add(tl);
 
             //Apenas informação
             trace.TraceInformation("Trace de Informação");
@@ -48,6 +58,7 @@ namespace ConsoleApp
             trace.TraceEvent(TraceEventType.Stop, 6, "Fim do trace");
 
             //trace de data
+            //Argumentos extras, que serão mostrados quando for um trace de data
             trace.TraceData(TraceEventType.Warning, 7, new[] {"teste1", "teste2"});
 
             trace.Flush();

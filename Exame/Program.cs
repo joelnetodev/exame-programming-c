@@ -156,7 +156,7 @@ namespace ConsoleApp
             //DebugClass.TestarLinhas();
 
             //Trace e Log
-            TraceLogEventClass.TestarTraceSource();
+            TraceLogEventClass.TestarTrace();
         }
     }
 }
