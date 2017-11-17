@@ -155,7 +155,8 @@ namespace ConsoleApp
             //DebugClass.TestarAtributoDiretivas();
             //DebugClass.TestarLinhas();
 
-
+            //Trace e Log
+            TraceLogEventClass.TestarTraceSource();
         }
     }
 }
