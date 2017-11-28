@@ -1,4 +1,5 @@
 ﻿using System;
+using System.CodeDom;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -64,15 +65,28 @@ namespace ConsoleApp._2___Types
             }
 
             //Implicita de string = variavel vai receber money
+            //(string)money converte money em string
             public static implicit operator string(Money money)
             {
                 return money.ToString();
             }
 
-            //explicita de int, ao converter m par aint, retorna valor inteiro
+            //explicita de int, ao converter m par int, retorna valor inteiro
+            //(string)money converte money em int
             public static explicit operator int(Money money)
             {
                 return (int)money.Valor;
+            }
+
+            //Sobrescreve a comparação por ele mesmo == 
+            //em vez de comprar se objeto igual a objeto, compara se valor igual a valor
+            public static bool operator ==(Money m1, Money m2)
+            {
+                return m1.Valor == m2.Valor;
+            }
+            public static bool operator !=(Money m1, Money m2)
+            {
+                return m1.Valor != m2.Valor;
             }
         }
     }
