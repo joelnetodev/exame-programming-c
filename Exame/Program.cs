@@ -43,41 +43,41 @@ namespace ConsoleApp
 
         private static void TestarFlowThreads()
         {
-            //Flow
+            ////Flow
 
-            //Thread
+            ////Thread
             //ThreadClass.TestarThread();
             //ThreadClass.ThreadParametro();
             //ThreadClass.TestarThreadAtributo();
 
 
-            //Task
+            ////Task
             //TaskClass.TestarTask();
             //Console.WriteLine(TaskClass.TestarTaskReturn());
             //TaskClass.TestarMultipleTasks();
             //TaskClass.ThreadFactoryTest();
             //TaskClass.TaskCancellationTest();
 
-            //Async
+            ////Async
             //AsyncClass.TestarAsync();
             //AsyncClass.TestarAsyncConfigureAwait();
 
-            //Parallel
+            ////Parallel
             //ParallelClass.TestarLinqParallel();
             //ParallelClass.TestarConcurrentLists();
             //ParallelClass.LockedAndVolatileVariablesTest();
 
-            //Delegates
+            ////Delegates
             //DelegateClass.TestarDelegate();
             //DelegateClass.TestarMultipleDelegate();,
             //DelegateClass.TestarLambdaDelegate();
             //DelegateClass.TestEventAction();
 
-            //EventHandle
+            ////EventHandle
             //TesteEventHandleClass eventHandle = new TesteEventHandleClass();
             //eventHandle.TestarEventHandle();
 
-            //Exceptions
+            ////Exceptions
             //ExceptionClass.TestarException();
             //ExceptionClass.TestarSemException();
             //ExceptionClass.TestarSpecifcException();
@@ -86,17 +86,17 @@ namespace ConsoleApp
 
         private static void TestarTypesLifeCycle()
         {
-            //Types LifeCycle
+            ////Types LifeCycle
 
-            //Value
+            ////Value
             //ValueTypesClass.TestarEnum();
 
-            //Reference
+            ////Reference
             //ReferencesTypesClass.TestarTypoReferencia();
             //GenericTypesClass.TestarGeneric();
             //ExtensionsClass.TestarExtensions();
 
-            //Conversão
+            ////Conversão
             //ConversionClass.TestarConversaoImplicitaExplicita();
             //ConversionClass.TestarConversarAseIs();
             //DynamicClass.TestarDynamic();
@@ -105,56 +105,58 @@ namespace ConsoleApp
             //InterfaceClass.TesteInterface();
             //AbstractClass.TestarClasseAbstrata();
 
+            ////Reflection
             //ReflectionAttributeClass.TestarAtributo();
             //ReflectionClass.TestarReflectionExecutarMetodo();
             //ReflectionClass.TestarReflectionInstanciarClasse();
             //CodeDOMClass.TestarCodeDOMexpression();
 
-            //Ciclo de Vida
+            ////Ciclo de Vida
             //GargabeClass.TestarAguardarGarbage();
             //GargabeClass.TestarDisposeInUsing();
             //WeakClass.TestarWeakRef();
 
-            //STRINGS
+            ////STRINGS
             //StringClass.TestarStringBuilder();
             //StringClass.TestarWriterReader();
             //StringClass.TestarSearch();
             //Console.WriteLine(StringClass.ToString());
             //StringClass.TestarToString();
 
-            BaseTypeClass.TestarComparable();
+            ////Base Types 
+            //BaseTypeClass.TestarComparable();
 
 
         }
 
         private static void TestarSecurityLog()
         {
-            //Security Logs
+            ////Security Logs
 
-            //Criptografia
+            ////Criptografia
             //CryptographyClass.TestarCriptografiaSimetrica();
             //CryptographyClass.TestarCriptografiaAssimetrica();
 
-            //ValidationResult conteudo e tipo
+            ////ValidationResult conteudo e tipo
             //ValidateTypeContentClass.TestarParseConvert();
             //ValidateTypeContentClass.TestarIntregridadeNotations();
             //ValidateTypeContentClass.TestarRegEx();
 
-            //Validar Serialização
+            ////Validar Serialização
             //ValidateJsonXmlClass.TestarJson();
             //ValidateJsonXmlClass.TestarXML();
 
-            //Certificado
+            ////Certificado
             //CertificateClass.TestarCertificado();
 
-            //Permissão local
+            ////Permissão local
             //PermissionClass.TestarPermissaoNegada();
             //PermissionClass.GarantirAcesso();
 
-            //SecureString
+            ////SecureString
             //SecureStringClass.TestarSecureString();
 
-            //DEBUG
+            ////DEBUG
             //DebugClass.TestarDebugReleaseTimer();
             //DebugClass.TestarDiretivas();
             //DebugClass.TestarAtributoDiretivas();
