@@ -7,6 +7,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using ConsoleApp.EventsDelegates;
 using ConsoleApp._2___Types;
+using ConsoleApp._2___Types.BaseTypes;
 using Exame;
 
 namespace ConsoleApp
@@ -20,7 +21,7 @@ namespace ConsoleApp
                 Console.WriteLine("Main");
                 Console.WriteLine("");
 
-                TesarFlowThreads();
+                TestarFlowThreads();
                 TestarTypesLifeCycle();
                 TestarSecurityLog();
 
@@ -40,7 +41,7 @@ namespace ConsoleApp
             
         }
 
-        private static void TesarFlowThreads()
+        private static void TestarFlowThreads()
         {
             //Flow
 
@@ -120,6 +121,10 @@ namespace ConsoleApp
             //StringClass.TestarSearch();
             //Console.WriteLine(StringClass.ToString());
             //StringClass.TestarToString();
+
+            BaseTypeClass.TestarComparable();
+
+
         }
 
         private static void TestarSecurityLog()
@@ -156,7 +161,7 @@ namespace ConsoleApp
             //DebugClass.TestarLinhas();
 
             //Trace e Log
-            TraceLogEventClass.TestarTrace();
+            //TraceLogEventClass.TestarTrace();
         }
     }
 }
