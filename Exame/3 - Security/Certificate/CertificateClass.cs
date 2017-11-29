@@ -7,7 +7,6 @@ using System.Security.AccessControl;
 using System.Security.Cryptography;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
-using System.Web.Helpers;
 using System.Web.Script.Serialization;
 using System.Xml;
 using System.Xml.Schema;
@@ -25,50 +24,51 @@ namespace ConsoleApp
 
         //Usando o MakeCert.exe é possivel criar um certificado teste padrão x.509 para testar
         // X.509 é um padrão de PKI que define os requisitos para um certificado digital
+        
 
-
-        //PS: certificado usa SHA1, hash tbm.
+        //PS: certificado usa SHA1 que é a criptografia usada pra gerar o hash.
         public static void TestarCertificado()
         {
+            //O certificado é usado para criptografar o texto e retornar uma cadeia de bytes
             Console.WriteLine("Digite um texto");
             string msg1 = Console.ReadLine();
-            var textoAssinado = Assinar(msg1);
+            var bytesDoTextoAssinado = Assinar(msg1);
             
+            //O mesmo certificado verifica se o texto digitado é essa cadeia de bytes
             Console.WriteLine("Digite outro texto");
             string msg2 = Console.ReadLine();
-
-            bool teste = Verificar(msg2, textoAssinado);
+            bool teste = Verificar(msg2, bytesDoTextoAssinado);
 
             string result = teste ? "Mensagens batem" : "Mensagens não batem";
             Console.WriteLine(result);
 
         }
 
-        //Usa chave provada para assinar
+        //Usa chave privada para assinar
         private static byte[] Assinar(string txt)
         {
             var cert = ObterCertificado();
             var cryptoServiceKey = (RSACryptoServiceProvider) cert.PrivateKey;
 
-            var hashedTxt = DoHashFromString(txt);
+            var hashedTxt = BuildHashFromString(txt);
 
             //CryptoConfig.MapNameToOID("SHA1") = Algoritmo que foi usado para criptografar o texto 
             return cryptoServiceKey.SignHash(hashedTxt, CryptoConfig.MapNameToOID("SHA1"));
         }
 
         //Usa chave pública para verificar
-        private static bool Verificar(string txt, byte[] hashedTxtSigned)
+        private static bool Verificar(string textToVerify, byte[] hashedTextSigned)
         {
             var cert = ObterCertificado();
             var cryptoServiceKey = (RSACryptoServiceProvider)cert.PublicKey.Key;
 
-            var hashedTxt = DoHashFromString(txt);
+            var hashedTxt = BuildHashFromString(textToVerify);
 
             //Verifica se o hash da mensagem é igual a mensagem assinada com certificado usando a chave publica
-            return cryptoServiceKey.VerifyHash(hashedTxt, CryptoConfig.MapNameToOID("SHA1"), hashedTxtSigned);
+            return cryptoServiceKey.VerifyHash(hashedTxt, CryptoConfig.MapNameToOID("SHA1"), hashedTextSigned);
         }
 
-        private static byte[] DoHashFromString(string txt)
+        private static byte[] BuildHashFromString(string txt)
         {
             //USA SHA1 para criptografar o texto
             HashAlgorithm hashing = new SHA1Managed();
@@ -85,7 +85,6 @@ namespace ConsoleApp
             X509Store store = new X509Store("customCertStore", StoreLocation.CurrentUser);
             store.Open(OpenFlags.ReadOnly);
 
-            
             foreach (var cert in store.Certificates)
             {
                 if (cert.SubjectName.Name == "CN=CertificadoJoel")
