@@ -156,11 +156,11 @@ namespace ConsoleApp
             ////SecureString
             //SecureStringClass.TestarSecureString();
 
-            ////DEBUG
-            //DebugClass.TestarDebugReleaseTimer();
-            //DebugClass.TestarDiretivas();
-            //DebugClass.TestarAtributoDiretivas();
-            //DebugClass.TestarLinhas();
+            ////DEBUGG
+            //DebuggClass.TestarDebugReleaseTimer();
+            //DebuggClass.TestarDiretivas();
+            //DebuggClass.TestarAtributoDiretivas();
+            //DebuggClass.TestarLinhas();
 
             //Trace e Log
             //TraceLogEventClass.TestarTrace();
