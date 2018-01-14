@@ -23,11 +23,14 @@ namespace ConsoleApp._4___Data
         {
             using (SqlConnection connection = new SqlConnection(ConnString))
             {
-                string query = "SELECT * FROM TabelaTeste";
+                string query = "SELECT * FROM TabelaTeste where Id = @id";
 
                 //cria um command com a string de conexão
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
+                    //adiciona uma parametro no comando
+                    command.Parameters.AddWithValue("id", 1);
+
                     //abre a conexão para poder acessar o banco
                     connection.Open();
 
@@ -57,7 +60,7 @@ namespace ConsoleApp._4___Data
             using (SqlConnection connection = new SqlConnection(ConnString))
             {
                 //Retorna uma tabela do banco
-
+                //o data adapter pode ser uma query ou um comand com parametros, como no exemplo anterior
                 SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM TabelaTeste", connection);
 
                 //preenche o DataTable com essa tabela
