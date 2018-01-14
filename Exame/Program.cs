@@ -9,6 +9,7 @@ using ConsoleApp.EventsDelegates;
 using ConsoleApp._2___Types;
 using ConsoleApp._2___Types.BaseTypes;
 using Exame;
+using ConsoleApp._4___Data;
 
 namespace ConsoleApp
 {
@@ -118,14 +119,13 @@ namespace ConsoleApp
 
             ////STRINGS
             //StringClass.TestarStringBuilder();
-            //StringClass.TestarWriterReader();
             //StringClass.TestarSearch();
             //Console.WriteLine(StringClass.ToString());
             //StringClass.TestarToString();
 
             ////Base Types 
             //BaseTypeClass.TestarComparable();
-
+            BaseTypeClass.TestarEquatable();
 
         }
 
@@ -164,6 +164,12 @@ namespace ConsoleApp
 
             //Trace e Log
             //TraceLogEventClass.TestarTrace();
+        }
+
+        private static void TestarData()
+        {
+            //Leitura Escrita String e XML
+            StringDataClass.TestarWriterReader();
         }
     }
 }

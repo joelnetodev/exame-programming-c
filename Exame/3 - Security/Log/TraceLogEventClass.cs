@@ -33,10 +33,10 @@ namespace ConsoleApp
 
             //Cria texto e listener para escrever os eventos no arquivo.
             FileStream fs = !File.Exists("Log.txt") 
-                ? File.Create("Log.txt")
-                : File.Open("Log.txt", FileMode.Append);
-            TraceListener tl = new TextWriterTraceListener(fs);
+                ? File.Create("Log.txt", 1, FileOptions.RandomAccess)
+                : File.Open("Log.txt", FileMode.Append, FileAccess.Write);
 
+            TraceListener tl = new TextWriterTraceListener(fs);
 
             //SourceLevel para mostrar todos os tipos, ou tipos especificos
             TraceSource trace = new TraceSource("Log Evento:", SourceLevels.All);

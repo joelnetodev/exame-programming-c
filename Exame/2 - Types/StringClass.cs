@@ -45,43 +45,6 @@ namespace ConsoleApp
             Console.WriteLine(sBuilder[0]);
         }
 
-        //Muitas APIS em c# esperam string writer ou reader para trabalhar, 
-        //ele é apenas uma adaptação do StringBuilder, internamente ele trabalha como StringBuilder
-        public static void TestarWriterReader()
-        {
-            //Writer
-            var strWriter = new StringWriter();
-            using (var xmlWriter = XmlWriter.Create(strWriter))
-            {
-                xmlWriter.WriteStartElement("Pessoa");
-
-                xmlWriter.WriteElementString("Nome", "Joel Neto");
-                xmlWriter.WriteElementString("Idade", "26");
-
-                xmlWriter.WriteElementString("Nome", "José Augusto");
-                xmlWriter.WriteElementString("Idade", "30");
-
-                xmlWriter.WriteEndElement();
-
-                xmlWriter.Flush();
-            }
-
-            var xmlString = strWriter.ToString();
-
-            Console.WriteLine(xmlString);
-            Console.WriteLine();
-
-            //Reader
-            var strReader = new StringReader(xmlString);
-            using (var xmlReader = XmlReader.Create(strReader))
-            {
-                xmlReader.ReadToFollowing("Pessoa");
-                Console.WriteLine(xmlReader.ReadInnerXml());
-            }
-
-            //Console.WriteLine(strWriter);
-        }
-
         public static void TestarSearch()
         {
             string teste = "String de exemplo para testar";
@@ -100,13 +63,14 @@ namespace ConsoleApp
             Console.WriteLine("Substring: " + teste.Substring(10, 7));
         }
 
-        //
+        //new para esconder o metodo toString e criar um novo 
         public static new string ToString()
         {
             return "Classe de testes com strings";
         }
-
-        public static void TestarToString()
+        
+        //Conversão
+        public static void TestarConversaoToString()
         {
             double valor = 1234.89;
             Console.WriteLine(valor.ToString("C", new System.Globalization.CultureInfo("pt-BR")));
