@@ -83,7 +83,8 @@
     <Compile Include="3 - Security\SecureString\SecureStringClass.cs" />
     <Compile Include="3 - Security\Validation\ValidateJsonXmlClass.cs" />
     <Compile Include="3 - Security\Validation\ValidateTypeContentClass.cs" />
-    <Compile Include="4 - Data\StringDataClass.cs" />
+    <Compile Include="4 - Data\SqlClass .cs" />
+    <Compile Include="4 - Data\TextoDataClass.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="1 - Flow\Task\TaskClass.cs" />

@@ -25,7 +25,7 @@ namespace ConsoleApp
                 TestarFlowThreads();
                 TestarTypesLifeCycle();
                 TestarSecurityLog();
-
+                TestarData();
 
                 Console.WriteLine("\n\n");
                 Console.WriteLine("End Main");
@@ -125,7 +125,7 @@ namespace ConsoleApp
 
             ////Base Types 
             //BaseTypeClass.TestarComparable();
-            BaseTypeClass.TestarEquatable();
+            //BaseTypeClass.TestarEquatable();
 
         }
 
@@ -168,8 +168,13 @@ namespace ConsoleApp
 
         private static void TestarData()
         {
-            //Leitura Escrita String e XML
-            StringDataClass.TestarWriterReader();
+            //Leitura Escrita String Texto e XML
+            //TextoDataClass.TestarWriterReaderXML();
+            //TextoDataClass.TestarStreamString();
+
+            //SQL DataAccess
+            SqlClass.TestarConsultaReader();
+            SqlClass.TestarConsultaTable();
         }
     }
 }
