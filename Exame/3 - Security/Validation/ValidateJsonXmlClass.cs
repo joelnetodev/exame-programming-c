@@ -28,7 +28,7 @@ namespace ConsoleApp
             string json = jss.Serialize(cliente);
             Console.WriteLine(json);
 
-            //Se for único objeto, deserializa como dic 
+            //Se for único objeto, deserializa como dic de chave valor, como um XML
             var dic = jss.Deserialize<Dictionary<string, object>>(json);
             var clienteDes = jss.Deserialize<ValidateTypeContentClass.Cliente>(json);
 
